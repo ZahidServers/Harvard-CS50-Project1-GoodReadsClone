@@ -1,0 +1,170 @@
+<!--This page is coded by Mohammed Zahid Wadiwale and is intellectual property of Mohammed Zahid Wadiwale-->
+{% extends "template.html" %}
+		{% block title %}
+		Zahid BooksReview
+		{% endblock %}
+		{% block content %}
+		<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<style type="text/css">
+	.bookf{
+		display: block;
+		background-color: white;
+		width: 100%;
+	}
+</style>
+<style type="text/css">
+.rating {
+  display: inline-block;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  font-size: 50px;
+  padding-left: 5px;
+}
+
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating label:last-child {
+  position: static;
+}
+
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating label:last-child .icon {
+  color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: #09f;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #09f;
+}
+textarea {
+  width: 80%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+</style>
+		<div class="bookf">
+			<table><tr>
+    <td><h2>Book Name:{{data.title}}</h2></td>
+    </tr><tr><td>
+        Author:<h3> {{data.author}}</h3></td><td>
+        Year:<h3> {{data.year}}</h3></td><td>
+        Isbn:<h3> {{data.isbn}}</h3></td></tr><tr>
+<tr>        
+	<td>
+		<h3 class=''>Goodread.com rating:-</h3></td><td>
+        <h4>{{average_rating}}</h4></td><td></tr><tr><td>
+        <h4 class=''>Reviews received: </h4></td><td>
+        <h4>{{rcounts}}</h4></td>
+    </tr>
+</div>
+</tr></table>
+{% if reviews == None %}
+<h4 style="color: DodgerBlue;">Give Your Review</h4>
+<form method="post" action="/isbn/{{data.isbn}}"><div class="rating">
+  <label>
+    <input type="radio" name="stars" value="1"/>
+    <span class="icon">★</span>
+  </label>
+  <label>
+    <input type="radio" name="stars" value="2" />
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+  </label>
+  <label>
+    <input type="radio" name="stars" value="3" />
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+    <span class="icon">★</span>   
+  </label>
+  <label>
+    <input type="radio" name="stars" value="4" />
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+  </label>
+  <label>
+    <input type="radio" name="stars" value="5" />
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+    <span class="icon">★</span>
+  </label></div><br>
+  &nbsp;<textarea align="center" name="textarea" placeholder="Enter Your Review" required></textarea></br>
+  &nbsp;<input type="submit" style="width:25%;background-color: #4CAF50;border: none;color: white;padding: 15px 6px;text-decoration: none;margin: 4px 2px;cursor: pointer;" value="Submit Your Review">
+</form>
+{% endif %}
+
+{% if reviews != None %}
+{% for x in reviews %}
+<div class="bookf">
+    <h6 style="padding-left: 10px;color: DodgerBlue;">Your Rating: {{x.rating}} of 5</h6>
+    <blockquote ><h6 style="padding-left: 10px;color: DodgerBlue;">Your Review</h6><br>
+    <textarea align="center" name="textarea" required>{{x.review}}</textarea>
+    <div><b style="color:DodgerBlue;">Your Email:-</b>{{x.email}}</div>
+    </blockquote>
+</div>
+{% endfor %}
+{% endif %}
+ 		{% endblock %}

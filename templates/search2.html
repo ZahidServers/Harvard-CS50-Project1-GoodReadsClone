@@ -1,0 +1,43 @@
+<!--This page is coded by Mohammed Zahid Wadiwale and is intellectual property of Mohammed Zahid Wadiwale-->
+{% extends "template2.html" %}
+		{% block title %}
+		Zahid BooksReview
+		{% endblock %}
+		{% block content %}
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+	<style type="text/css">
+		.result{
+			color: white;
+		}
+		.result:hover{
+			color:cyan;
+		}
+	</style>
+	<h3 style="color: white;text-shadow: 4px 4px 6px;padding-left: 10px;">You Searched For <b style="color: #66ff33;">"{{string}}"</b></h3>
+      {% for searches in search %}
+      		<div style="padding-left: 10px;padding-bottom: 1px;padding-top: 2px;">
+              <a class='result' style="text-shadow: 4px 4px 4px;" href="/isbn/{{ searches.isbn }}"><h5>
+                  Name Of The Book:{{ searches.title }}
+              </br>
+                  Author Of The Book:{{ searches.author }}
+              </br>
+                  ISBN Number Of The Book:{{ searches.isbn }}
+               </br>
+                  Written In Year:{{ searches.year }}
+              </a></h5>
+             </div>
+      {% endfor %}
+  {% endblock %}

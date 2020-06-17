@@ -1,0 +1,347 @@
+<!--This page is coded by Mohammed Zahid Wadiwale and is intellectual property of Mohammed Zahid Wadiwale-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>
+		{% block title %}
+		{% endblock %}
+	</title>
+	<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<style>
+
+body {
+	margin: 0;
+	background-color:#4ca3dd;
+	font-size: 28px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.header {
+	background-color: #E6E6FA;
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+#navbar {
+	overflow: hidden;
+	background-color: #2d3436;
+	background-image: linear-gradient(185deg, #2d3436 0%, #000000 74%);
+}
+
+#navbar a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+#navbar a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+#navbar a.active {
+	background-color: #4CAF50;
+	color: white;
+}
+
+.content {
+	padding-top: 1px;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index:+1;
+}
+
+.sticky + .content {
+	padding-top: 60px;
+}
+.alumini{
+	background-color: #4CAF50;
+}
+@media(max-width:760px)
+{
+.search{
+	display:none;
+}
+.logo{
+	line-height:10px;
+	font-size:15px;
+}
+.logoscj{
+	line-height:10px;
+	font-size:15px;
+}
+}
+@media(max-width:526px)
+{
+.logo{
+	display:none;
+}
+.nonetitle{
+	display:inline-block;
+}
+.headerz{
+	height:100px;
+}
+.sticky{
+	width:100%;
+}
+}
+@media(min-width:526px)
+{
+.nonetitle{
+	display:none;
+}
+.headerz{
+	height:80px;
+}
+.sticky{
+}
+}
+.headerz{
+	width:100%;
+	background-color:#E6E6FA;
+}
+body{
+	margin:0px;
+	padding:0px;
+}
+.logo{
+	color:#663399;
+	font-size:25px;
+	font-family:verdana;
+	text-align:left;
+	margin-top:5px;
+	float:left;
+	margin:0px;
+	line-height:50px;
+	padding-left:9px;
+}
+/* unvisited link */
+.logoscj:link {
+    color:#663399;
+	font-size:25px;
+	font-family:verdana;
+	text-align:left;
+	margin-top:5px;
+	float:left;
+	margin:0px;
+	line-height:50px;
+	padding-left:9px;
+    text-decoration:none;
+}
+/* visited link */
+.logoscj:visited {
+    color:#663399;
+	font-size:25px;
+	font-family:verdana;
+	text-align:left;
+	margin-top:5px;
+	float:left;
+	margin:0px;
+	line-height:50px;
+	padding-left:9px;
+	text-decoration:none;
+}
+/* mouse over link */
+.logoscj:hover {
+    color:#845BAD;
+	font-size:25px;
+	font-family:verdana;
+	text-align:left;
+	margin-top:5px;
+	float:left;
+	margin:0px;
+	line-height:50px;
+	padding-left:9px;
+	text-decoration:none;
+}
+/* selected link */
+.logoscj:active {
+    color:#663399;
+	font-size:25px;
+	font-family:verdana;
+	text-align:left;
+	margin-top:5px;
+	float:left;
+	margin:0px;
+	line-height:50px;
+	padding-left:9px;
+    text-decoration:none;
+}
+.nonetitle:hover{
+	color:#845BAD;
+	text-align:left;
+	margin-top:5px;
+	float:left;
+	margin:0px;
+}
+input[type=text]{
+	width:70%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	background-color: white;
+	background-image: url('{{url_for('static', filename='searchicon.png')}}');
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;}
+input[type=submit]{
+	width:120px;
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 6px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+input[type=submit]:hover{
+	background-color: green;
+	font-weight:bold;
+	text-shadow:8px 8px 12px;
+}
+</style>
+</head>
+<body>
+<div class="header">
+		<div class="headerz">
+		<header>
+		<div style="background-color:red;color:yellow;font-size: 15px;font-weight: bold;">
+		<marquee width="120%" direction="left" height="15px" scrollamount="10">An Important Announcement This is a Web App in Python My Second Python Web App Earlier I used To code in PHP but then I saw this Harvard Amazing Course So i enrolled it You Can see my Github repos at my username ZahidServers please checkout my some cool projects.</marquee>
+		</div><br>
+			<h5 class="nonetitle" style="color:#663399;padding-bottom:5px;text-align:left;margin-top:5px;float:left;margin:0px;"><a href="/" style="color:purple;text-decoration:none">Zahid BooksReview</a><br></h5>
+			<h1 class="logo"><a href="/" class="logoscj">Zahid BooksReview</a></h1>
+			<form action="/search" method="post" style="float:right;display:inline-block;line-height:52px;padding-right:14px; width:30%;">
+				<input class="search" type="text" name="k" placeholder="search.." autocomplete="off"><input class="search" type="submit" style="width:25%;background-color: #4CAF50;border: none;color: white;padding: 15px 6px;text-decoration: none;margin: 4px 2px;cursor: pointer;" value="Search">
+			</form>
+		</header>
+		</div>
+	</div>
+	<nav>
+<div id="navbar">
+  <a class="active" href="./">Home</a>
+  <a href="{{url_for( 'logout' )}}">logout</a>
+
+</div></nav>
+<div class="content">
+{% block content %}
+{% endblock %}
+<div id="footer">
+<style>
+.footer{
+		background-color:black;
+		font-size: 15px;
+}
+.footer td{
+			color:white;
+			text-align:center;
+			font-size: 15px;
+			width:25%;
+			padding-top: none;
+			vertical-align:top;
+}
+.footer th{
+			color:white;
+			font-size: 15px;
+			width:25%;
+			vertical-align:top;
+}
+.social-icons {
+			text-align: center;
+			background-color:black;
+			margin:0px;
+			padding:10px;
+}
+.social-icons li {
+			display:inline-block;
+			background-color:black;
+			list-style-type:none;
+			-webkit-user-select:none;
+			-moz-user-select:none;
+}
+.social-icons li a {
+			border-bottom: none;
+}
+.social-icons li img {
+			width:20px;
+			height:20px;
+			margin-right: 20px;
+}
+.footerlink:link {
+			text-decoration: none;
+			color:white;
+}
+.footerlink:visited {
+ 		text-decoration: none;
+		color:white;
+}
+.footerlink:hover {
+		text-decoration: underline;
+		color:white;
+}
+
+.footerlink:active {
+		text-decoration: underline;
+		color:white;
+}
+</style>
+<div class="footer" bgcolor="black">
+<footer bgcolor="black">
+<br><br>
+<ul class="social-icons">
+    <li><a href="http://www.facebook.com/"><img src="{{url_for('static', filename='Facebook_1.png')}}"></a></li>
+    <li><a href="https://twitter.com/Zahid_Servers"><img src="{{url_for('static', filename='Twitter_1.png')}}"></a></li>
+    <li><a href="https://www.youtube.com/channel/UC34SPzfHCp0KyKIVcKZxHhA"><img src="{{url_for('static', filename='Youtube_1.png')}}"></a></li>
+    <li><a href="https://github.com/me50/ZahidServers"><img src="{{url_for('static', filename='Github_1.png')}}"></a></li>
+</ul>
+<br><br><br>
+<hr>
+<table class="footer" bgcolor="black" width="100%" align="center">
+<tbody><tr>
+<th>About This Project</th>
+<th>Features</th>
+<th>Harvard</th>
+</tr>
+<tr>
+<td><p>This project is created by Mohammed Zahid Imtiyaz Wadiwale<br>This for submission to harvard cs50 web it is project1 completed on date 4 April.</p></td>
+<td><p>It has login and registration features guest/users can search for their favrouite books but only users can view book page and give their favourite books ratings and reviews each user can can only give review once they can also view the ratings and review which they gave to book after submitting the post.<br>It also has api ffeature which only loginned users can access it sends api in .json format.<br>Users can get average ratings and the rating count of the book.</p></td>
+<td><p>This project was assigned by harvard to me for cs50 web course. There are total of 5 projects in this courses excellent course got to learn a lot recommend to everyone</p></td>
+</tr>
+</tbody></table>
+<br>
+<br>
+</footer>
+</div></div>
+</div>
+</body>
+</html>
